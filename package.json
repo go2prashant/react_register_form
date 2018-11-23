@@ -1,49 +1,22 @@
 {
-  "name": "react-signup-form",
-  "version": "0.0.0",
-  "description": "example singup form in react.js",
-  "main": "gulpfile.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mikepro4/react-signup-form.git"
-  },
-  "keywords": [
-    "react",
-    "form",
-    "input",
-    "validation"
-  ],
-  "author": "Mikhail Proniushkin",
-  "license": "BSD-2-Clause",
-  "bugs": {
-    "url": "https://github.com/mikepro4/react-signup-form/issues"
-  },
-  "scripts": {
-    "start": "node_modules/gulp/bin/gulp.js"
-  },
+  "name": "prashant-app",
+  "version": "0.1.0",
+  "private": true,
   "devDependencies": {
-    "browserify": "^6.2.0",
-    "glob": "^4.0.6",
-    "gulp": "^3.8.9",
-    "gulp-concat": "^2.3.4",
-    "gulp-cssmin": "^0.1.6",
-    "gulp-if": "^1.2.4",
-    "gulp-livereload": "^2.1.1",
-    "gulp-notify": "^1.4.2",
-    "gulp-streamify": "0.0.5",
-    "gulp-uglify": "^0.3.1",
-    "gulp-util": "^3.0.0",
-    "gulp-jasmine2-phantomjs": "^0.1.1",
-    "gulp-shell": "^0.2.10",
-    "phantomjs": "^1.9.12",
-    "react-addons": "^0.9.0",
-    "reactify": "^0.15.2",
-    "vinyl-source-stream": "^0.1.1",
-    "watchify": "^2.1.1"
+    "node-sass": "^4.5.0",
+    "react-scripts": "0.9.0"
   },
   "dependencies": {
-    "react": "^0.12.0",
-    "gulp-plumber": "~0.6.6",
-    "gulp-less": "~3.0.1"
+    "react": "^15.4.2",
+    "react-bootstrap": "^0.30.7",
+    "react-dom": "^15.4.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "build-css": "node-sass src/scss/ -o src/scss/",
+    "watch-css": "npm run build-css && node-sass src/scss/ -o src/scss/ --watch",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }
