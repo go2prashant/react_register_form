@@ -31,7 +31,7 @@ onDelete(currentNodeId) {
   for(var i=0; i<this.state.data.registerStudentInfo.length; i++) {
     var stData = this.state.data.registerStudentInfo[i];
     if(stData && stData.uid && stData.uid == currentNodeId) {
-      //newArray.push(stData);
+      //newArray.push(stData);//Prashant TODO
       delete(this.state.data.registerStudentInfo[i]);
     }
   }
@@ -66,6 +66,7 @@ class RegisterStudentForm extends React.Component {
     super(props);
     this.registerStudent = this.registerStudent.bind(this);
     this.deleteStudent = this.deleteStudent.bind(this);
+	this.updateStudent = this.updateStudent.bind(this);
   }
   registerStudent(e) {
     var constructRegFormData = {
@@ -89,7 +90,12 @@ class RegisterStudentForm extends React.Component {
    var currentNodeId = e.currentTarget.id
    this.props.delClick(currentNodeId);
   } // delete student end
-
+  
+  updateStudent(e) {
+   var currentNodeId = e.currentTaget.id
+     
+  }
+  
   render() {
     return (
       <div className="container">
@@ -101,7 +107,7 @@ class RegisterStudentForm extends React.Component {
                 <div className="container my-cont">
                   <div className="row">
                     <div className="col-md-3">
-                      <span> First Name:</span>
+                      <span id="labelFname"> First Name:</span>
                     </div>
                     <div className="col-md-9">
                        <input className="form-control" id="firstName" type="text" ref='firstName'/>
@@ -110,7 +116,7 @@ class RegisterStudentForm extends React.Component {
 
                   <div className="row mrgnTp10">
                     <div className="col-md-3">
-                      <span> Last Name:</span>
+                      <span id="labelLname"> Last Name:</span>
                     </div>
 
                     <div className="col-md-9">
@@ -120,7 +126,7 @@ class RegisterStudentForm extends React.Component {
 
                   <div className="row mrgnTp10">
                     <div className="col-md-3">
-                      <span> Email Address:</span>
+                      <span id="labelEmail"> Email Address:</span>
                     </div>
 
                     <div className="col-md-9">
@@ -130,7 +136,7 @@ class RegisterStudentForm extends React.Component {
 
                   <div className="row mrgnTp10">
                     <div className="col-md-3">
-                      <span> Student SSN:</span>
+                      <span id="labelSSN"> Student SSN:</span>
                     </div>
 
                     <div className="col-md-9">
@@ -141,7 +147,7 @@ class RegisterStudentForm extends React.Component {
 
                   <div className="row mrgnTp10">
                     <div className="col-md-3">
-                      <span> Phone Number:</span>
+                      <span id="labelPhone"> Phone Number:</span>
                     </div>
 
                     <div className="col-md-9">
@@ -163,7 +169,7 @@ class RegisterStudentForm extends React.Component {
           <div className="col-md-6 right-col">
             <div className="panel panel-default">
               <div className="panel-heading">
-                <label className="mrgnBtm10"> Display Student Information </label>
+                <label className="mrgnBtm10" id="labelDispStudent"> Display Student Information </label>
                 <div className="container my-cont">
                 <div className="row">
                   <div className="col-md-2">
@@ -210,7 +216,14 @@ class RegisterStudentForm extends React.Component {
                               </div>
 
                               <div className="col-md-2 pull-right">
-                                <span> <button id={player.uid} type="button" className="btn-danger" onClick={this.deleteStudent}>Delete</button> </span>
+                                <span> 
+									<button id={player.uid} type="button" className="btn-danger" onClick={this.deleteStudent}>Delete</button> 
+									<button id={player.uid+'Upd'} type="button" className="btn-danger" onClick={this.updateStudent}>Update</button>
+								</span>
+                              </div>
+							  
+							  <div className="col-md-2 pull-right">
+                                <span> </span>
                               </div>
 
                             </div>
